@@ -2,32 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --gradient: linear-gradient(180deg, hsla(218, 39%, 57%, 1) 0%, hsla(229, 52%, 79%, 1) 100%);
+
+    --background: 210 26% 7.84%;
+    /* For main background */
+    --foreground: 210 4% 99.9%;
+    /* For high contrast text */
+    --card: 220 40% 45%;
+    /* For cards, ensuring legibility */
+    --card-foreground: 210 4% 99.9%;
+    /* For text on cards */
+    --popover: 0 0% 100%;
+    /* For popover */
+    --popover-foreground: 222.2 84% 4.9%;
+    /* For text for popovers */
+    --primary: 220 40% 30%;
+    /* For important UI elements */
+    --primary-foreground: 229 30% 80%;
+    /* For text on primary elements, ensuring contrast */
+    --secondary: 218 39% 30%;
+    /* For secondary elements */
+    --secondary-foreground: 210 4% 99.9%;
+    /* For contrast */
+    --muted: 220 30% 90%;
+    /* For less important or disabled elements */
+    --muted-foreground: 210 4% 80%;
+    /*--*/
+    --accent: 229 52% 70%;
+    /* For accent elements, standing out against others */
+    --accent-foreground: 210 4% 99.9%;
+    /*--*/
+    --destructive: 0 98.8% 65%;
+    /* Red for clear indication of destructive actions */
+    --destructive-foreground: 210 4% 99.9%;
+    /* Almost white for readability */
+    
+    --border: 220 30% 80%;
+    --input: 210 4% 80%;
+    --ring: 210 40% 98%;
+
+
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .bg-gradient {
+    background: var(--gradient)
   }
 }
